@@ -15,5 +15,7 @@ namespace Entity.Concrete
         public int ProductId { get; set; }
         public int UserId { get; set; }
         public int Count { get; set; }
+        public DateTime CreateDate { get; set; }
+        public bool İsActive { get; set; }
     }
 }
