@@ -17,6 +17,6 @@ namespace Entity.Concrete
         public string AddressDetail { get; set; }
         public int PostalCode { get; set; }
         public DateTime CreateDate { get; set; }
-        public bool İsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

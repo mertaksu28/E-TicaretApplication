@@ -17,6 +17,6 @@ namespace Entity.Concrete
         public int OrderStatusId { get; set; }
         public int Count { get; set; }
         public DateTime CreateDate { get; set; }
-        public bool İsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

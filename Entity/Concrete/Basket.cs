@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entity.Concrete
 {
-    public class Basket:IEntity
+    public class Basket : IEntity
     {
         [Key]
         public int BasketId { get; set; }
@@ -16,6 +16,6 @@ namespace Entity.Concrete
         public int UserId { get; set; }
         public int Count { get; set; }
         public DateTime CreateDate { get; set; }
-        public bool İsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

@@ -15,6 +15,6 @@ namespace Entity.Concrete
         public int CountryId { get; set; }
         public string CityName { get; set; }
         public DateTime CreateDate { get; set; }
-        public bool İsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

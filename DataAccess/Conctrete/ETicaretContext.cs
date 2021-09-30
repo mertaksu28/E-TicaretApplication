@@ -12,7 +12,7 @@ namespace DataAccess.Conctrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=ETicaretDb; integrated security=true");
+            optionsBuilder.UseSqlServer("Server=MERT; Database=ETicaretDb; integrated security=true");
         }
 
         public DbSet<Address> Addresses { get; set; }
@@ -20,8 +20,10 @@ namespace DataAccess.Conctrete
         public DbSet<Category> Categories { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Brand> Brands { get; set; }
 
     }
 }
