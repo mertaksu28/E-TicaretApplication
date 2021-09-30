@@ -1,5 +1,4 @@
 ﻿using Business.Abstract;
-using DataAccess.EntityFramework;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,37 +10,29 @@ namespace Business.Concrete
 {
     public class CityManager : ICityService
     {
-
-        EfCityRepository _efCityRepository;
-
-        public CityManager()
-        {
-            _efCityRepository = new EfCityRepository();
-        }
-
         public void Add(City city)
         {
-            _efCityRepository.Add(city);
+            throw new NotImplementedException();
         }
 
         public void Delete(City city)
         {
-            _efCityRepository.Delete(city);
+            throw new NotImplementedException();
         }
 
         public List<City> GetAll()
         {
-            return _efCityRepository.GetAll();
+            throw new NotImplementedException();
         }
 
         public City GetById(int id)
         {
-            return _efCityRepository.GetById(id);
+            throw new NotImplementedException();
         }
 
         public void Update(City city)
         {
-            _efCityRepository.Update(city);
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Business.Abstract;
-using DataAccess.EntityFramework;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,37 +10,29 @@ namespace Business.Concrete
 {
     public class OrderManager : IOrderService
     {
-
-        EfOrderRepository _eforderRepository;
-
-        public OrderManager()
-        {
-            _eforderRepository = new EfOrderRepository();
-        }
-
         public void Add(Order order)
         {
-            _eforderRepository.Add(order);
+            throw new NotImplementedException();
         }
 
         public void Delete(Order order)
         {
-            _eforderRepository.Delete(order);
+            throw new NotImplementedException();
         }
 
         public List<Order> GetAll()
         {
-            return _eforderRepository.GetAll();
+            throw new NotImplementedException();
         }
 
         public Order GetById(int id)
         {
-            return _eforderRepository.GetById(id);
+            throw new NotImplementedException();
         }
 
         public void Update(Order order)
         {
-            _eforderRepository.Update(order);
+            throw new NotImplementedException();
         }
     }
 }

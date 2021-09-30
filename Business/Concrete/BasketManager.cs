@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using DataAccess.EntityFramework;
+
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,36 +11,29 @@ namespace Business.Concrete
 {
     public class BasketManager : IBasketService
     {
-        EfBasketRepository _efBasketRepository;
-
-        public BasketManager()
-        {
-            _efBasketRepository = new EfBasketRepository();
-        }
-
         public void Add(Basket basket)
         {
-            _efBasketRepository.Add(basket);
+            throw new NotImplementedException();
         }
 
         public void Delete(Basket basket)
         {
-            _efBasketRepository.Delete(basket);
+            throw new NotImplementedException();
         }
 
         public List<Basket> GetAll()
         {
-            return _efBasketRepository.GetAll();
+            throw new NotImplementedException();
         }
 
         public Basket GetById(int id)
         {
-            return _efBasketRepository.GetById(id);
+            throw new NotImplementedException();
         }
 
         public void Update(Basket basket)
         {
-            _efBasketRepository.Update(basket);
+            throw new NotImplementedException();
         }
     }
 }

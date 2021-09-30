@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
-using DataAccess.EntityFramework;
+using DataAccess.Abstract;
+using DataAccess.Conctrete;
+using DataAccess.Context;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,36 +14,30 @@ namespace Business.Concrete
     public class UserManager : IUserService
     {
 
-        EfUserRepository _efUserRepository;
-
-        public UserManager()
-        {
-            _efUserRepository = new EfUserRepository();
-        }
-
         public void Add(User user)
         {
-            _efUserRepository.Add(user);
+            throw new NotImplementedException();
         }
 
         public void Delete(User user)
         {
-            _efUserRepository.Delete(user);
+            throw new NotImplementedException();
         }
 
         public List<User> GetAll()
         {
-            return _efUserRepository.GetAll();
+
+            throw new NotImplementedException();
         }
 
         public User GetById(int id)
         {
-            return _efUserRepository.GetById(id);
+            throw new NotImplementedException();
         }
 
         public void Update(User user)
         {
-            _efUserRepository.Update(user);
+            throw new NotImplementedException();
         }
     }
 }

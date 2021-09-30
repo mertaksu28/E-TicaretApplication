@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
-using DataAccess.EntityFramework;
+using DataAccess.Abstract;
+
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,36 +13,36 @@ namespace Business.Concrete
     public class AddressManager : IAddressService
     {
 
-        EfAddressRepository _efAddressRepository;
+        IAddressDal _addressDal;
 
-        public AddressManager()
+        public AddressManager(IAddressDal addressDal)
         {
-            _efAddressRepository = new EfAddressRepository();
+            _addressDal = addressDal;
         }
 
         public void Add(Address address)
         {
-            _efAddressRepository.Add(address);
+            _addressDal.Add(address);
         }
 
         public void Delete(Address address)
         {
-            _efAddressRepository.Delete(address);
+            _addressDal.Delete(address);
         }
 
         public List<Address> GetAll()
         {
-            return _efAddressRepository.GetAll();
+            return _addressDal.GetAll();
         }
 
         public Address GetById(int id)
         {
-            return _efAddressRepository.GetById(id);
+            return _addressDal.GetById(id);
         }
 
         public void Update(Address address)
         {
-            _efAddressRepository.Update(address);
+            _addressDal.Update(address);
         }
     }
 }
