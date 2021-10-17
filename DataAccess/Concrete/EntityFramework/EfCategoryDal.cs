@@ -1,4 +1,6 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
+using DataAccess.Conctrete.EntityFramework;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,41 +11,8 @@ using System.Threading.Tasks;
 
 namespace Core.DataAccess
 {
-    public class EfCategoryDal : ICategoryDal
+    public class EfCategoryDal : EfEntityRepositoryBase<Category, ETicaretContext>, ICategoryDal
     {
-        public void Add(Category entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Category entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Category Get(Expression<Func<Category, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Category> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Category GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Category entity)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

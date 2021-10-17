@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using DataAccess.Conctrete.EntityFramework;
 using Entity.Concrete;
 using System;
@@ -10,31 +11,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfAddressDal : IAddressDal
+    public class EfAddressDal : EfEntityRepositoryBase<Address, ETicaretContext>, IAddressDal
     {
-        public void Add(Address entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Address entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Address Get(Expression<Func<Address, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Address> GetAll(Expression<Func<Address, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Address entity)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

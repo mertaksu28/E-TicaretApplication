@@ -1,4 +1,6 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
+using DataAccess.Conctrete.EntityFramework;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,41 +11,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfBasketDal : IBasketDal
+    public class EfBasketDal : EfEntityRepositoryBase<Basket, ETicaretContext>, IBasketDal
     {
-        public void Add(Basket entity)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void Delete(Basket entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Basket Get(Expression<Func<Basket, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Basket> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Basket> GetAll(Expression<Func<Basket, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Basket GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Basket entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

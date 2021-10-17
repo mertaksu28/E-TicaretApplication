@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using DataAccess.Conctrete.EntityFramework;
 using Entity.Concrete;
 using System;
@@ -10,31 +11,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal : IUserDal
+    public class EfUserDal : EfEntityRepositoryBase<User, ETicaretContext>, IUserDal
     {
-        public void Add(User entity)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void Delete(User entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User Get(Expression<Func<User, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<User> GetAll(Expression<Func<User, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(User entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -13,6 +13,6 @@ namespace Entity.Concrete
         [Key]
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public bool İsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }
