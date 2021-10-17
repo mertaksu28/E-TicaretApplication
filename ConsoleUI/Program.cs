@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using Entity.Concrete;
 using System;
 
@@ -8,11 +9,11 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            UserManager userManager = new UserManager();
+            ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var user in userManager.GetAll())
+            foreach (var product in productManager.GetAllByCategoryId(1))
             {
-                Console.WriteLine(user.FirstName);
+                Console.WriteLine(product.ProductName);
             }
         }
     }

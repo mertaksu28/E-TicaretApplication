@@ -1,4 +1,4 @@
-﻿using Entity.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,7 +16,7 @@ namespace Entity.Concrete
         public string ProductName { get; set; }
         public int BrandId { get; set; }
         public int UnitsInStock { get; set; }
-        public int UnitPrice { get; set; }
+        public Decimal UnitPrice { get; set; }
         public string Description { get; set; }
         public DateTime CreateDate { get; set; }
         public bool IsActive { get; set; }

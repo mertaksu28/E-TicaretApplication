@@ -1,40 +1,38 @@
-﻿using Business.Abstract;
-using DataAccess.Abstract;
-using DataAccess.Conctrete;
+﻿using DataAccess.Abstract;
+using DataAccess.Conctrete.EntityFramework;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Concrete
+namespace DataAccess.Concrete.EntityFramework
 {
-    public class UserManager : IUserService
+    public class EfUserDal : IUserDal
     {
-
-        public void Add(User user)
+        public void Add(User entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(User user)
+        public void Delete(User entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<User> GetAll()
-        {
-
-            throw new NotImplementedException();
-        }
-
-        public User GetById(int id)
+        public User Get(Expression<Func<User, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(User user)
+        public List<User> GetAll(Expression<Func<User, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(User entity)
         {
             throw new NotImplementedException();
         }

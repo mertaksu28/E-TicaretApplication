@@ -1,40 +1,37 @@
-﻿using Business.Abstract;
-using DataAccess.Abstract;
-using DataAccess.Conctrete;
+﻿using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Concrete
+namespace DataAccess.Concrete.EntityFramework
 {
-    public class UserManager : IUserService
+    public class EfCityDal : ICityDal
     {
-
-        public void Add(User user)
+        public void Add(City entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(User user)
+        public void Delete(City entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<User> GetAll()
-        {
-
-            throw new NotImplementedException();
-        }
-
-        public User GetById(int id)
+        public City Get(Expression<Func<City, bool>> filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(User user)
+        public List<City> GetAll(Expression<Func<City, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(City entity)
         {
             throw new NotImplementedException();
         }

@@ -37,7 +37,7 @@ namespace Business.Concrete
 
         public Address GetById(int id)
         {
-            return _addressDal.GetById(id);
+            throw new NotImplementedException();
         }
 
         public void Update(Address address)

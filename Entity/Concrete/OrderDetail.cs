@@ -1,4 +1,4 @@
-﻿using Entity.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entity.Concrete
 {
-    public class OrderDetail:IEntity
+    public class OrderDetail : IEntity
     {
         [Key]
         public int OrderDetailsId { get; set; }
