@@ -12,6 +12,7 @@ namespace Entity.Concrete
     {
         [Key]
         public int CategoryId { get; set; }
+        public int BrandId { get; set; }
         public string CategoryName { get; set; }
         public bool IsActive { get; set; }
     }

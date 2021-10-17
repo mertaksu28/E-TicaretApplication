@@ -10,10 +10,20 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
-
-            foreach (var product in productManager.GetAllByCategoryId(1))
+            CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+            // ProductDTO(productManager);
+            foreach (var category in categoryManager.GetCategoryDetails())
             {
-                Console.WriteLine(product.ProductName);
+                Console.WriteLine("Kategori Adı : " + category.CategoryName + " " + " Marka Adı : " + category.BrandName);
+            }
+
+        }
+
+        private static void ProductDTO(ProductManager productManager)
+        {
+            foreach (var product in productManager.GetProductDetails())
+            {
+                Console.WriteLine("Kategori Adı : " + product.CategoryName + " Marka Adı : " + product.BrandName + " Ürün Adı : " + product.ProductName);
             }
         }
     }

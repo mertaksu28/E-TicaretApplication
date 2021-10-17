@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
-
+using DataAccess.Abstract;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,14 @@ namespace Business.Concrete
 {
     public class CategoryManager : ICategoryService
     {
+
+        ICategoryDal _categoryDal;
+
+        public CategoryManager(ICategoryDal categoryDal)
+        {
+            _categoryDal = categoryDal;
+        }
+
         public void Add(Category category)
         {
             throw new NotImplementedException();
@@ -23,12 +32,17 @@ namespace Business.Concrete
 
         public List<Category> GetAll()
         {
-            throw new NotImplementedException();
+            return _categoryDal.GetAll();
         }
 
         public Category GetById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<CategoryDetailDto> GetCategoryDetails()
+        {
+            return _categoryDal.GetCategorDetails();
         }
 
         public void Update(Category category)
