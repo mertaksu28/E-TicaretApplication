@@ -1,4 +1,5 @@
-﻿using Entity.Concrete;
+﻿using Core.Utilities.Results.Abstract;
+using Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace Business.Abstract
 {
     public interface IBasketService
     {
-        List<Basket> GetAll();
-        Basket GetById(int id);
-        void Add(Basket basket);
-        void Delete(Basket basket);
-        void Update(Basket basket);
+        IDataResult<List<Basket>> GetAll();
+        IDataResult<Basket> GetById(int id);
+        IResult Add(Basket basket);
+        IResult Delete(Basket basket);
+        IResult Update(Basket basket);
     }
 }

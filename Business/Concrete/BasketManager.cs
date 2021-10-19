@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
-
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
+using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,29 +13,39 @@ namespace Business.Concrete
 {
     public class BasketManager : IBasketService
     {
-        public void Add(Basket basket)
+        IBasketDal _basketDal;
+
+        public BasketManager(IBasketDal basketDal)
         {
-            throw new NotImplementedException();
+            _basketDal = basketDal;
         }
 
-        public void Delete(Basket basket)
+        public IResult Add(Basket basket)
         {
-            throw new NotImplementedException();
+            _basketDal.Add(basket);
+            return new SuccessResult();
         }
 
-        public List<Basket> GetAll()
+        public IResult Delete(Basket basket)
         {
-            throw new NotImplementedException();
+            _basketDal.Delete(basket);
+            return new SuccessResult();
         }
 
-        public Basket GetById(int id)
+        public IDataResult<List<Basket>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Basket>>(_basketDal.GetAll());
         }
 
-        public void Update(Basket basket)
+        public IDataResult<Basket> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Basket>(_basketDal.Get(b => b.BasketId == id));
+        }
+
+        public IResult Update(Basket basket)
+        {
+            _basketDal.Update(basket);
+            return new SuccessResult();
         }
     }
 }

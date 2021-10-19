@@ -1,4 +1,5 @@
-﻿using Entity.Concrete;
+﻿using Core.Utilities.Results.Abstract;
+using Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace Business.Abstract
 {
     public interface ICityService
     {
-        List<City> GetAll();
-        City GetById(int id);
-        void Add(City city);
-        void Delete(City city);
-        void Update(City city);
+        IDataResult<List<City>> GetAll();
+        IDataResult<City> GetById(int id);
+        IResult Add(City city);
+        IResult Delete(City city);
+        IResult Update(City city);
     }
 }

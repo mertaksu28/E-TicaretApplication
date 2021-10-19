@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
+using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +13,40 @@ namespace Business.Concrete
 {
     public class OrderManager : IOrderService
     {
-        public void Add(Order order)
+
+        IOrderDal _orderDal;
+
+        public OrderManager(IOrderDal orderDal)
         {
-            throw new NotImplementedException();
+            _orderDal = orderDal;
         }
 
-        public void Delete(Order order)
+        public IResult Add(Order order)
         {
-            throw new NotImplementedException();
+            _orderDal.Add(order);
+            return new SuccessResult();
         }
 
-        public List<Order> GetAll()
+        public IResult Delete(Order order)
         {
-            throw new NotImplementedException();
+            _orderDal.Delete(order);
+            return new SuccessResult();
         }
 
-        public Order GetById(int id)
+        public IDataResult<List<Order>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Order>>(_orderDal.GetAll());
         }
 
-        public void Update(Order order)
+        public IDataResult<Order> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Order>(_orderDal.Get(o => o.OrderId==id));
+        }
+
+        public IResult Update(Order order)
+        {
+            _orderDal.Update(order);
+            return new SuccessResult();
         }
     }
 }

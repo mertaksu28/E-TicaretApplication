@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entity.Concrete;
 using Entity.DTOs;
@@ -20,34 +22,37 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
-        public void Add(Category category)
+        public IResult Add(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Add(category);
+            return new SuccessResult();
         }
 
-        public void Delete(Category category)
+        public IResult Delete(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Delete(category);
+            return new SuccessResult();
         }
 
-        public List<Category> GetAll()
+        public IDataResult<List<Category>> GetAll()
         {
-            return _categoryDal.GetAll();
+            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll());
         }
 
-        public Category GetById(int id)
+        public IDataResult<Category> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryId == id));
         }
 
-        public List<CategoryDetailDto> GetCategoryDetails()
+        public IDataResult<List<CategoryDetailDto>> GetCategoryDetails()
         {
-            return _categoryDal.GetCategorDetails();
+            return new SuccessDataResult<List<CategoryDetailDto>>(_categoryDal.GetCategorDetails());
         }
 
-        public void Update(Category category)
+        public IResult Update(Category category)
         {
-            throw new NotImplementedException();
+            _categoryDal.Update(category);
+            return new SuccessResult();
         }
     }
 }

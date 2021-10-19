@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
+using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +13,40 @@ namespace Business.Concrete
 {
     public class CityManager : ICityService
     {
-        public void Add(City city)
+
+        ICityDal _cityDal;
+
+        public CityManager(ICityDal cityDal)
         {
-            throw new NotImplementedException();
+            _cityDal = cityDal;
         }
 
-        public void Delete(City city)
+        public IResult Add(City city)
         {
-            throw new NotImplementedException();
+            _cityDal.Add(city);
+            return new SuccessResult();
         }
 
-        public List<City> GetAll()
+        public IResult Delete(City city)
         {
-            throw new NotImplementedException();
+            _cityDal.Delete(city);
+            return new SuccessResult();
         }
 
-        public City GetById(int id)
+        public IDataResult<List<City>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<City>>(_cityDal.GetAll());
         }
 
-        public void Update(City city)
+        public IDataResult<City> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<City>(_cityDal.Get(c => c.CityId == id));
+        }
+
+        public IResult Update(City city)
+        {
+            _cityDal.Delete(city);
+            return new SuccessResult();
         }
     }
 }

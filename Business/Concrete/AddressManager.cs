@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 
 using Entity.Concrete;
@@ -20,29 +22,32 @@ namespace Business.Concrete
             _addressDal = addressDal;
         }
 
-        public void Add(Address address)
+        public IResult Add(Address address)
         {
             _addressDal.Add(address);
+            return new SuccessResult();
         }
 
-        public void Delete(Address address)
+        public IResult Delete(Address address)
         {
             _addressDal.Delete(address);
+            return new SuccessResult();
         }
 
-        public List<Address> GetAll()
+        public IDataResult<List<Address>> GetAll()
         {
-            return _addressDal.GetAll();
+            return new SuccessDataResult<List<Address>>(_addressDal.GetAll());
         }
 
-        public Address GetById(int id)
+        public IDataResult<Address> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Address>(_addressDal.Get(a => a.AdressId == id));
         }
 
-        public void Update(Address address)
+        public IResult Update(Address address)
         {
             _addressDal.Update(address);
+            return new SuccessResult();
         }
     }
 }
