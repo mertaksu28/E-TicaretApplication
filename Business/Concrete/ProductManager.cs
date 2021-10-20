@@ -24,19 +24,28 @@ namespace Business.Concrete
 
         public IResult Add(Product product)
         {
-            _productDal.Add(product);
-            return new SuccessResult(Messages.ProductAdded);
+            if (product.ProductName.Length>2)
+            {
+                _productDal.Add(product);
+                return new SuccessResult(Messages.ProductAdded);
+            }
+            else
+            {
+                return new ErrorResult("Ürün adı en az 2 karakter olmalı");
+            }
+            
         }
 
         public IResult Delete(Product product)
         {
             _productDal.Delete(product);
-            return new SuccessResult("Ürün Silindi");
+            return new SuccessResult(Messages.ProductDeleted);
         }
 
         public IDataResult<List<Product>> GetAll()
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetAll());
+            _productDal.GetAll();
+            return new SuccessDataResult<List<Product>>(Messages.ProductListed) ;
         }
 
         public IDataResult<List<Product>> GetAllByCategoryId(int id)
