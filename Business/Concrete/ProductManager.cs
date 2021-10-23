@@ -24,7 +24,7 @@ namespace Business.Concrete
 
         public IResult Add(Product product)
         {
-            if (product.ProductName.Length>2)
+            if (product.ProductName.Length > 2)
             {
                 _productDal.Add(product);
                 return new SuccessResult(Messages.ProductAdded);
@@ -33,7 +33,7 @@ namespace Business.Concrete
             {
                 return new ErrorResult("Ürün adı en az 2 karakter olmalı");
             }
-            
+
         }
 
         public IResult Delete(Product product)
@@ -44,8 +44,8 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAll()
         {
-            _productDal.GetAll();
-            return new SuccessDataResult<List<Product>>(Messages.ProductListed) ;
+
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductListed);
         }
 
         public IDataResult<List<Product>> GetAllByCategoryId(int id)

@@ -15,7 +15,6 @@ namespace Core.Utilities.Results.Concrete
 
         public Result(bool success, string message) : this(success)
         {
-            Success = success;
             Message = message;
         }
 
