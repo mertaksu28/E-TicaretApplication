@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
+    //DependencyResolvers : Bağımlılık Çözümleyiciler
+
     public class ProductManager : IProductService
     {
         IProductDal _productDal;
