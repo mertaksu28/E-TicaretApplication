@@ -1,10 +1,13 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entity.Concrete;
 using Entity.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,19 +26,14 @@ namespace Business.Concrete
         {
             _productDal = productDal;
         }
-
+        //Business Codes : İş gereksinimlerimize uygunluktur
+        //Validation: Bir nesneyi iş kurallarına dahil etmek için bu nesnenin yapısal olarak uygun olup olmadığını kontrol etmeye doğrulama denir.
         public IResult Add(Product product)
         {
-            if (product.ProductName.Length > 2)
-            {
-                _productDal.Add(product);
-                return new SuccessResult(Messages.ProductAdded);
-            }
-            else
-            {
-                return new ErrorResult("Ürün adı en az 2 karakter olmalı");
-            }
+            ValidationTool.Validate(new ProductValidator(), product);
 
+            _productDal.Add(product);
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Delete(Product product)
@@ -47,7 +45,7 @@ namespace Business.Concrete
         public IDataResult<List<Product>> GetAll()
         {
 
-            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductListed);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductListed);
         }
 
         public IDataResult<List<Product>> GetAllByCategoryId(int id)
