@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -26,12 +27,10 @@ namespace Business.Concrete
         {
             _productDal = productDal;
         }
-        //Business Codes : İş gereksinimlerimize uygunluktur
-        //Validation: Bir nesneyi iş kurallarına dahil etmek için bu nesnenin yapısal olarak uygun olup olmadığını kontrol etmeye doğrulama denir.
+        
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
-            ValidationTool.Validate(new ProductValidator(), product);
-
             _productDal.Add(product);
             return new SuccessResult(Messages.ProductAdded);
         }
