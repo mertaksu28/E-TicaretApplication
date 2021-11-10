@@ -1,40 +1,40 @@
 ﻿using Business.Abstract;
 using Entity.Concrete;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class AddressesController : ControllerBase
     {
-        //Dependency chain
-        //Loosely coupled
-        //naming convention
-        //IOC Container = Inversion Of Control
-        IProductService _productService;
+        IAddressService _addressService;
 
-        public ProductsController(IProductService productService)
+        public AddressesController(IAddressService addressService)
         {
-            _productService = productService;
+            _addressService = addressService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _productService.GetAll();
+            var result = _addressService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-        
+
         [HttpPost("add")]
-        public IActionResult Add(Product product)
+        public IActionResult Add(Address address)
         {
-            var result = _productService.Add(product);
+            var result = _addressService.Add(address);
             if (result.Success)
             {
                 return Ok(result);
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
-            var result = _productService.GetById(id);
+            var result = _addressService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Product product)
+        public IActionResult Delete(Address address)
         {
-            var result = _productService.Delete(product);
+            var result = _addressService.Delete(address);
             if (result.Success)
             {
                 return Ok(result);
@@ -65,9 +65,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Product product)
+        public IActionResult Update(Address address)
         {
-            var result = _productService.Update(product);
+            var result = _addressService.Update(address);
             if (result.Success)
             {
                 return Ok(result);

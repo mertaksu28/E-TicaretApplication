@@ -13,8 +13,8 @@ namespace Entity.Concrete
         [Key]
         public int ProductId { get; set; }
         public int CategoryId { get; set; }
-        public string ProductName { get; set; }
         public int BrandId { get; set; }
+        public string ProductName { get; set; }
         public int UnitsInStock { get; set; }
         public Decimal UnitPrice { get; set; }
         public string Description { get; set; }

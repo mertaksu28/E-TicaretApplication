@@ -3,6 +3,8 @@ using System;
 
 namespace Core.Utilities.Interceptors
 {
+    //Interceptors : Araya girmek demektir.
+
     public abstract class MethodInterception : MethodInterceptionBaseAttribute
     {
         protected virtual void OnBefore(IInvocation invocation) { }

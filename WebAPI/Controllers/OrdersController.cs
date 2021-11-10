@@ -1,40 +1,40 @@
 ﻿using Business.Abstract;
 using Entity.Concrete;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class OrdersController : ControllerBase
     {
-        //Dependency chain
-        //Loosely coupled
-        //naming convention
-        //IOC Container = Inversion Of Control
-        IProductService _productService;
+        IOrderService _orderService;
 
-        public ProductsController(IProductService productService)
+        public OrdersController(IOrderService orderService)
         {
-            _productService = productService;
+            _orderService = orderService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _productService.GetAll();
+            var result = _orderService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-        
+
         [HttpPost("add")]
-        public IActionResult Add(Product product)
+        public IActionResult Add(Order order)
         {
-            var result = _productService.Add(product);
+            var result = _orderService.Add(order);
             if (result.Success)
             {
                 return Ok(result);
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
-            var result = _productService.GetById(id);
+            var result = _orderService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Product product)
+        public IActionResult Delete(Order order)
         {
-            var result = _productService.Delete(product);
+            var result = _orderService.Delete(order);
             if (result.Success)
             {
                 return Ok(result);
@@ -65,9 +65,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Product product)
+        public IActionResult Update(Order order)
         {
-            var result = _productService.Update(product);
+            var result = _orderService.Update(order);
             if (result.Success)
             {
                 return Ok(result);

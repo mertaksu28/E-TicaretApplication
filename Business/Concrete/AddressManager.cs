@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -22,6 +24,7 @@ namespace Business.Concrete
             _addressDal = addressDal;
         }
 
+        [ValidationAspect(typeof(AddressValidator))]
         public IResult Add(Address address)
         {
             _addressDal.Add(address);
