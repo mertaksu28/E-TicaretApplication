@@ -22,29 +22,12 @@ namespace WebAPI.Controllers
         {
             _productImageService = productImageService;
         }
-        //, IFormFile formFile
+
         [HttpPost("add")]
         public IActionResult Add([FromForm] ProductImageDto productImageDto)
         {
 
-            ProductImage image = new ProductImage();
-            if (productImageDto.ImageFileName != null)
-            {
-                var extension = Path.GetExtension(productImageDto.ImageFileName.FileName);
-                var newImageName = Guid.NewGuid() + extension;
-                var placeToSave = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", newImageName);
-                using (var stream = new FileStream(placeToSave, FileMode.Create))
-                {
-                    productImageDto.ImageFileName.CopyTo(stream);
-
-                }
-                image.ImagePath = newImageName;
-            }
-            image.Id = productImageDto.Id;
-            image.ProductId = productImageDto.ProductId;
-            image.Date = DateTime.Now;
-
-            var result = _productImageService.Add(image);
+            var result = _productImageService.Add(productImageDto);
 
             if (result.Success)
             {

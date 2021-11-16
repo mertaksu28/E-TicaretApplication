@@ -1,8 +1,10 @@
 ﻿using Business.Abstract;
+using Core.Utilities.FileOperations;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,13 +22,20 @@ namespace Business.Concrete
             _productImageDal = productImageDal;
         }
 
-        public IResult Add(ProductImage productImage)
+        public IResult Add(ProductImageDto productImageDto)
         {
-           _productImageDal.Add(productImage);
+            ProductImage image = new ProductImage
+            {
+                Id = productImageDto.Id,
+                ImagePath = FileOperation.FileAdd(productImageDto.ImageFileName),
+                ProductId = productImageDto.ProductId,
+                Date = DateTime.Now
+            };
+            _productImageDal.Add(image);
             return new SuccessResult();
         }
 
-        public IResult Delete(ProductImage productImage)
+        public IResult Delete(ProductImageDto productImageDto)
         {
             throw new NotImplementedException();
         }
@@ -41,7 +50,7 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IResult Update(ProductImage productImage)
+        public IResult Update(ProductImageDto productImageDto)
         {
             throw new NotImplementedException();
         }
