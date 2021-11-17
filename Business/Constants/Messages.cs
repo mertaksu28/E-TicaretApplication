@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,6 @@ namespace Business.Constants
         public static string ProductDeleted = "Ürünler başarıyla silindi";
         public static string ProductImageNotFound = "Ürün Resmi Bulunamadı";
         public static string ProductImageDeleted = "Ürün Resmi Silindi";
+        public static string ProductImageListed = "Ürün Resimleri Listelendi";
     }
 }

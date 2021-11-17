@@ -38,6 +38,3 @@ namespace Core.Utilities.FileOperations
 
     }
 }
-
-            //Array.ForEach(Directory.GetFiles(FilePath), File.Delete);
-            //return true;

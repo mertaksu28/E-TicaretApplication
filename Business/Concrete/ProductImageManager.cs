@@ -50,9 +50,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProductImageDeleted);
         }
 
-        public IDataResult<ProductImage> GetAll()
+        public IDataResult<List<ProductImage>> GetAll()
         {
-            throw new NotImplementedException();
+            _productImageDal.GetAll();
+            return new SuccessDataResult<List<ProductImage>>(Messages.ProductImageListed);
         }
 
         public IDataResult<ProductImage> GetById(int id)
@@ -60,7 +61,7 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IResult Update(ProductImageDto productImageDto)
+        public IResult Update(ProductImage productImage)
         {
             throw new NotImplementedException();
         }

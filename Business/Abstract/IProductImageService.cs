@@ -12,10 +12,10 @@ namespace Business.Abstract
 {
     public interface IProductImageService
     {
-        IDataResult<ProductImage> GetAll();
+        IDataResult<List<ProductImage>> GetAll();
         IDataResult<ProductImage> GetById(int id);
         IResult Add(ProductImageDto productImageDto);
         IResult Delete(ProductImage productImage);
-        IResult Update(ProductImageDto productImageDto);
+        IResult Update(ProductImage productImage);
     }
 }
