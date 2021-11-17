@@ -14,6 +14,6 @@ namespace Business.Constants
         public static string ProductListed = "Ürünler başarıyla listelendi";
         public static string ProductDeleted = "Ürünler başarıyla silindi";
         public static string ProductImageNotFound = "Ürün Resmi Bulunamadı";
-        public static string CarImageDeleted = "Ürün Resmi Silindi";
+        public static string ProductImageDeleted = "Ürün Resmi Silindi";
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.FileOperations;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -35,9 +36,18 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IResult Delete(ProductImageDto productImageDto)
+        public IResult Delete(ProductImage productImageDto)
         {
-            throw new NotImplementedException();
+            var result = _productImageDal.Get(pi => pi.Id == productImageDto.Id);
+
+            if (result == null)
+            {
+                return new ErrorResult(Messages.ProductImageNotFound);
+            }
+            FileOperation.DeleteFile(result.ImagePath);
+
+            _productImageDal.Delete(result);
+            return new SuccessResult(Messages.ProductImageDeleted);
         }
 
         public IDataResult<ProductImage> GetAll()

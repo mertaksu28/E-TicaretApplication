@@ -15,7 +15,7 @@ namespace Business.Abstract
         IDataResult<ProductImage> GetAll();
         IDataResult<ProductImage> GetById(int id);
         IResult Add(ProductImageDto productImageDto);
-        IResult Delete(ProductImageDto productImageDto);
+        IResult Delete(ProductImage productImage);
         IResult Update(ProductImageDto productImageDto);
     }
 }
