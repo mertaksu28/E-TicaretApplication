@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.Abstract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Concrete
+namespace Core.Entities.Concrete
 {
     public class User : IEntity
     {
@@ -15,6 +16,9 @@ namespace Entity.Concrete
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
         public bool IsActive { get; set; }
     }
+
 }
