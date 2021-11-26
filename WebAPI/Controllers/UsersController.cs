@@ -1,5 +1,4 @@
 ﻿using Business.Abstract;
-using Core.Entities.Concrete;
 using Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
