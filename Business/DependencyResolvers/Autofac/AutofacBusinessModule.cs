@@ -4,6 +4,7 @@ using Business.Abstract;
 using Business.Concrete;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
+using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using System;
@@ -42,12 +43,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ProductImageManager>().As<IProductImageService>().SingleInstance();
             builder.RegisterType<EfProductImageDal>().As<IProductImageDal>().SingleInstance();
 
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+
             //builder.RegisterType<BasketManager>().As<IBasketService>().SingleInstance();
             //builder.RegisterType<EfBasketDal>().As<IBasketDal>().SingleInstance();
-
-            // Go kırmızı hap :D
-            // Python (AI) - Django / Flask
-            // JavaScript - nodejs
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entity.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -20,7 +21,9 @@ namespace WebAPI.Controllers
             _productService = productService;
         }
 
+        //Authorize: Bir operasyonu çalıştırabilmek için kişinin AddAuthentica olması yeterli demek.(Yani istek yapıldığında token olması yeterli)
         [HttpGet("getall")]
+        //[Authorize(Roles ="Product.List")]
         public IActionResult GetAll()
         {
             var result = _productService.GetAll();
@@ -30,7 +33,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        
+
         [HttpPost("add")]
         public IActionResult Add(Product product)
         {
